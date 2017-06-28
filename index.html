@@ -1,0 +1,386 @@
+
+<html>
+  <head>
+   <title>Incripcion UJMC</title>
+  </head>
+   <body>
+
+   <div align="center">
+    <form class='contacto' id="form"  >
+     <div><input type='text' placeholder='Nombre'  ></div>
+     <div><input type='text' placeholder='Apellido'></div>
+     <div><input type='text' placeholder='Edad'></div>
+     <div><input type='text' placeholder='Cedula'></div>
+     <div><input type='text' placeholder='Direccion'></div>
+     <div><input type='text' placeholder='Telefono'></div>
+     <div><input type='text' placeholder='Correo'></div>
+     <div>Carreras <select name='Carreras' size="1">
+     <option value="Contaduria">Contaduria
+     <option value="Informatica">Informatica
+     <option value="Recursos Humanos">Recursos Humanos
+     <option value="Mercadeo">Mercadeo
+     <option value="Turismo">Turismo
+     </select></div>
+
+     <table>
+      <tr>
+       <td><div><input type='button' value='Guardar' onclick="Guardar()"></div></td>
+       <td><div><input type="Reset" value="Borrar"></div></td>
+      </tr>
+     </table>
+    </form>
+   </div>
+
+   <div style="text-align:center;width:100%" id="myTableDiv" >
+    <table  id="myTable" >
+     <tr>
+      <th><div>Nombre</div></th>
+      <th><div>Apellido</div></th>
+      <th><div>Edad</div></th>
+      <th><div>Cedula</div></th>
+      <th><div>Direccion</div></th>
+      <th><div>Telefono</div></th>
+      <th><div>Correo</div></th>
+      <th><div>Carrera</div></th>
+      </tr>
+     </table>
+    </div>
+   </body>
+</html>
+
+
+<style>
+/* letras del cuadros pequeÃ±os*/
+*{
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #798e94;
+}
+/* pagina completa*/
+body{
+    margin: auto;
+    background-color: #E2ECEE;
+}
+/* cuadro grande, bordes, fondo etc */
+.contacto{
+    border: 1px solid #CED5D7;
+    border-radius: 6px;
+    padding: 45px 45px 20px;
+    margin-top: 50px;
+    background-color: white;
+    box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+}
+/* */
+.contacto div{
+    margin-bottom: 15px;
+}
+/* Cuadros pequeÃ±os */
+.contacto input[type='text']{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #CED5D7;
+    resize: none;
+    box-shadow:0 0 0 3px #EEF5F7;
+    margin: 5px 0;
+}
+/* Cuadro de seleccion de carreras */
+.contacto select[name='Carreras']{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #CED5D7;
+    resize: none;
+    box-shadow:0 0 0 3px #EEF5F7;
+    margin: 5px 0;
+}
+/* Boton guardar*/
+.contacto input[type='button']{
+    border: 1px solid #CED5D7;
+    box-shadow:0 0 0 3px #EEF5F7;
+    padding: 8px 16px;
+    border-radius: 1px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px white;
+    width: 150px;
+
+    background: #e4f1f6;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}
+/* Boton guardar*/
+.contacto input[type='button']:hover{
+    background: #edfcff;
+    background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
+}
+/*Boton guardar */
+.contacto input[type='button']:active{
+    background: #cfe6ef;
+    background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
+    background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
+}
+/* Boton borrar*/
+.contacto input[type="Reset"]{
+    border: 1px solid #CED5D7;
+    box-shadow:0 0 0 3px #EEF5F7;
+    padding: 8px 16px;
+    border-radius: 1px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px white;
+    width: 150px;
+
+    background: #e4f1f6;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}
+    /* Boton borrar*/
+.contacto input[type="Reset"]:hover{
+    background: #edfcff;
+    background: -moz-linear-gradient(top, #edfcff 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #edfcff 0%,#cfe6ef 100%);
+}
+/*Boton borrar */
+.contacto input[type="Reset"]:active{
+    background: #cfe6ef;
+    background: -moz-linear-gradient(top, #cfe6ef 0%, #edfcff 100%);
+    background: -webkit-linear-gradient(top, #cfe6ef 0%,#edfcff 100%);
+}
+/* celdas de tabla */
+#myTable tr{
+    padding: 7px 6px;
+    width: 400px;
+    border: 1px solid #CED5D7;
+    resize: none;
+    box-shadow:0 0 0 3px #EEF5F7;
+    background-color: white;
+
+}
+/* head de tabla */
+#myTable th{
+    padding: 7px 6px;
+    width: 400px;
+    border: 1px solid #CED5D7;
+    resize: none;
+    box-shadow:0 0 0 3px #EEF5F7;
+    background-color: lightgrey;
+}
+
+
+#myTableDiv{
+     overflow:scroll;
+     height:300px;
+     margin-left: 15px;
+     margin-right: : 30px;
+     margin-bottom: 50px;
+}
+
+#form {
+    width: 294px;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+ var contactos = []
+
+ function agregarContactoEnTabla(contacto){
+
+ contactos.push(contacto) //agregando elemento contacto
+
+    var table = document.getElementById("myTable");
+
+    var finalRow = contactos.length
+
+    var row = table.insertRow(finalRow);
+
+    var celdaNombre = row.insertCell(0);
+    var celdaApellido = row.insertCell(1);
+    var celdaEdad = row.insertCell(2);
+    var celdaCedula = row.insertCell(3);
+    var celdaDireccion = row.insertCell(4);
+    var celdaTelefono = row.insertCell(5);
+    var celdaCorreo = row.insertCell(6);
+    var celdaCarrera = row.insertCell(7);
+    var celdaBorrar = row.insertCell(8);
+
+
+    celdaNombre.innerHTML = "<input type=\'text\' value =" + contacto.nombre + ">"
+    celdaApellido.innerHTML = "<input type=\'text\' value =" + contacto.apellido + ">"
+    celdaEdad.innerHTML = "<input type=\'text\'  value =" + contacto.edad + ">"
+    celdaCedula.innerHTML = "<input type=\'text\'  value =" + contacto.cedula + ">"
+    celdaDireccion.innerHTML = "<input type=\'text\'  value =" + contacto.direccion + ">"
+    celdaTelefono.innerHTML = "<input type=\'text\'  value =" + contacto.telefono + ">"
+    celdaCorreo.innerHTML = "<input type=\'text\'  value =" + contacto.correo + ">"
+    celdaCarrera.innerHTML = "<input type=\'text\'  value =" + contacto.carrera + ">"
+    celdaBorrar.innerHTML = "<input type=\"button\" value=\"Delete\" onclick=\"deleteRow(this.parentNode.parentNode.rowIndex)\">"
+}
+
+
+function leerDatos(){ // metodo que se ejecuta cuando se cargue la pagina primer paso antes de guardar
+
+ 	var referenciaDataBase = firebase.database().ref();
+
+ 	var usersNodo = referenciaDataBase.child('users')
+
+ usersNodo.on('child_added', function(data) { // metodo on para recibir cualquier evento, en este caso los nuevos nodos hijos
+
+    var nombre = data.val().nombre;
+    var apellido = data.val().apellido;
+    var edad = data.val().edad;
+    var cedula = data.val().cedula;
+    var direccion = data.val().direccion;
+    var telefono = data.val().telefono;
+    var correo = data.val().correo;
+    var carrera = data.val().carrera;
+    var id = data.val().id;
+
+ 	var contacto = new Object() 
+
+    contacto.nombre = nombre
+    contacto.apellido = apellido
+    contacto.edad = edad
+    contacto.cedula = cedula
+    contacto.direccion = direccion
+    contacto.telefono = telefono
+    contacto.correo = correo
+    contacto.carrera = carrera
+    contacto.id= id
+
+agregarContactoEnTabla(contacto)
+
+})
+
+  usersNodo.on('child_changed', function(data) { // metodo on para eliminar cualquier evento, en este caso los nuevos nodos hijos
+
+ var id = data.val().id;
+
+ alert(id);
+
+
+})
+
+
+
+ usersNodo.on('child_removed', function(data) { // metodo on para eliminar cualquier evento, en este caso los nuevos nodos hijos
+
+  var id = data.val().id;
+
+  var index = contactos.findIndex(verificarContactoID, id)
+
+  var tabla = document.getElementById("myTable");
+
+	tabla.deleteRow(index + 1); // rowIndex, row: fila  index: posicion - eLIMINO EL  ROW DE LA TABLA - LA FILA
+
+ 	contactos.splice(index, 1); // ELIMINO EL CONTACTO DEL ARRAY
+
+})
+
+}
+
+function verificarContactoID(contacto, index, array){
+ return contacto.id == this
+}
+
+
+function Guardar(){ //paso1
+
+    var nombre = document.forms["form"].elements[0].value;
+    var apellido = document.forms["form"].elements[1].value;
+    var edad = document.forms["form"].elements[2].value;
+    var cedula = document.forms["form"].elements[3].value;
+    var direccion = document.forms["form"].elements[4].value;
+    var telefono = document.forms["form"].elements[5].value;
+    var correo = document.forms["form"].elements[6].value;
+    var carrera = document.forms["form"].elements[7].value;
+
+
+	var contacto = new Object() 
+
+    contacto.nombre = nombre
+    contacto.apellido = apellido
+    contacto.edad = edad
+    contacto.cedula = cedula
+	contacto.direccion = direccion
+	contacto.telefono = telefono
+	contacto.correo = correo
+	contacto.carrera = carrera
+
+agregarContacto(contacto)
+}
+
+ function agregarContacto(contacto) { //segundo paso
+
+    var referenciaDataBase = firebase.database().ref(); //obtener referencia de base de datos
+
+  	var usersNodo = referenciaDataBase.child('users') //obtener referencia del nodo hijo "users"
+
+ 	var nuevoAlumnoNodo = usersNodo.push() // nuevo nodo con nombre unico "key"
+
+	var nuevoAlumnoKey = nuevoAlumnoNodo.key; // obtengo el key del nodo que se creo
+
+	var nuevoUserReference = usersNodo.child(nuevoAlumnoKey) //obtengo la referencia del nodo nuevoAlumnoKey (KmcjBQYU2Qg_GDmsA2Y) 
+
+    nuevoUserReference.set({
+    nombre: contacto.nombre, 
+    apellido: contacto.apellido,
+    edad: contacto.edad, 
+    cedula: contacto.cedula,
+    direccion: contacto.direccion, 
+    telefono: contacto.telefono,
+    correo: contacto.correo, 
+    carrera: contacto.carrera,
+    id: nuevoAlumnoKey
+  });
+
+}
+
+function deleteRow(rowIndex) {
+
+ 
+ 	var indexContacto = rowIndex - 1
+ 	var contacto = contactos[indexContacto]
+
+
+   //para eliminar DE LA BASE DE DATOS
+
+  
+   var referenciaDataBase = firebase.database().ref();
+
+   var usersNodo = referenciaDataBase.child('users');
+
+   var nuevoUserReference = usersNodo.child(contacto.id);
+
+   nuevoUserReference.remove()
+
+}
+
+</script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDVUjvOnoXYDNVQcqjWBaQuuF_ntf9Gj4s",
+    authDomain: "inscripcion-fe77d.firebaseapp.com",
+    databaseURL: "https://inscripcion-fe77d.firebaseio.com",
+    projectId: "inscripcion-fe77d",
+    storageBucket: "inscripcion-fe77d.appspot.com",
+    messagingSenderId: "1098076816057"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+
+  leerDatos();
+</script>
+
+
+
+
+
+
+
